@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+</head>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'popins',sans-serif;
+}
+body{
+    color: white;
+    background-color: #002339;
+    font-size: 16   px;
+}
+.container{
+    margin: 10%;
+    max-width: 700px;
+    width: 90%;
+}
+.container h1{
+    font-weight: 600px;
+
+}
+input{
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 26px 20px;
+    border-radius: 5px;
+    font-size: 1.7rem;
+    outline: none;
+    border: 2px solid rgba(0, 0, 255, 0.578);
+}
+button{
+    display: flex;
+    border: none;
+    outline: none;
+    height: 50px;
+    width: 80%;
+    /* text-align: center; */
+    font-size:1.6rem ;
+    border-radius: 4px;
+    margin-left: 60px;
+    color: rgb(239, 236, 230);
+    background: olivedrab;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+button:active{
+    background-color: darkgrey;
+    color: white;
+}
+</style>
+<body>
+    <div class="container">
+        <h1>Random AlphaNumeric Password Generator</h1>
+        <div class="display">
+            <input type="text" name="" id="password" placeholder="Generate Your Password Now">
+<button onclick="createPassword()">Click To Generate Password</button>
+        </div>
+    </div>
+    <script>
+const passBox=document.getElementById("password");
+const length=12;
+const uppper="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const lower="abcdefghijklmnopqrstuvwxyz";
+const number="0123456789";
+const special="@/{}[]*&%$#()!=-+|";
+const allcharacters=uppper+lower+number+special;
+function  createPassword(){
+    let password="";
+    password+=uppper[Math.floor(Math.random()*uppper.length)];
+    password+=lower[Math.floor(Math.random()*lower.length)];
+    password+=number[Math.floor(Math.random()*number.length)];
+    password+=special[Math.floor(Math.random()*special.length)];
+    while(length>password.length){
+        password+=allcharacters[Math.floor(Math.random()*allcharacters.length)];
+    }
+    passBox.value=password;
+    console.log("password generated successfully");
+}
+    </script>
+</body>
+</html>

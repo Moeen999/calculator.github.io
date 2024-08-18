@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+#btn{
+    height: 70px;
+    width: 400px;
+    font-size: 50px;
+    color:white;
+    background-color: black;
+    border: none;
+    border-radius: 5px;
+
+}
+</style>
+<body>
+    <div class="container">
+        <button id="btn">0</button>
+    </div>
+    <script>
+let val=0;
+let btn=document.querySelector("#btn");
+btn.addEventListener("mouseover",()=>{
+    btn.style.color="white"
+
+    val=val+1;
+    btn.innerText=val;
+    while(val=="50"){
+        val=0;
+        btn.innerText=val;
+    }
+})
+    </script>
+</body>
+</html>
